@@ -1,0 +1,200 @@
+:root{
+  --purple-900: #2b0b4a;
+  --purple-800: #3a0f66;
+  --purple-600: #6b2fb3;
+  --purple-400: #8f5af3;
+  --bg: #fbf9ff;
+  --muted: #6b6b7a;
+  --text: #111012;
+  --card: #ffffff;
+  --radius: 10px;
+  --max-width: 980px;
+  --measure: 66ch;
+  --shadow: 0 6px 18px rgba(43,11,74,0.08);
+  --sans: "Inter", "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+* { box-sizing: border-box; }
+html,body { height:100%; }
+body{
+  margin:0;
+  font-family: var(--sans);
+  background: linear-gradient(180deg, var(--bg), #f6f5fb 60%);
+  color: var(--text);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.6;
+  font-size: 16px;
+}
+
+.site-header{
+  background: linear-gradient(90deg, var(--purple-900), var(--purple-800));
+  color: white;
+  padding: 18px 0;
+  box-shadow: 0 2px 8px rgba(43,11,74,0.12);
+  position: sticky;
+  top:0;
+  z-index: 50;
+}
+.header-inner{
+  max-width: calc(var(--max-width) + 40px);
+  margin: 0 auto;
+  padding: 0 20px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+}
+.site-title{
+  font-weight:700;
+  letter-spacing: -0.02em;
+  color: white;
+  text-decoration:none;
+  font-size:1.05rem;
+}
+
+.btn{
+  font-size:0.95rem;
+  padding:8px 12px;
+  border-radius:8px;
+  border: none;
+  cursor:pointer;
+  background: transparent;
+  color: white;
+  text-decoration: none;
+}
+.btn.ghost{ opacity:0.95; }
+.btn.outline{
+  border: 1px solid rgba(255,255,255,0.18);
+  background: transparent;
+}
+.btn.primary{
+  background: linear-gradient(90deg,var(--purple-600),var(--purple-400));
+  color: #fff;
+  box-shadow: 0 6px 18px rgba(107,47,179,0.18);
+}
+
+.container{
+  max-width: var(--max-width);
+  margin: 28px auto;
+  padding: 0 20px 80px;
+}
+
+.hero{
+  display:grid;
+  grid-template-columns: 1fr 320px;
+  gap:24px;
+  align-items:start;
+  margin-bottom: 28px;
+}
+.hero-content{
+  background: linear-gradient(180deg, rgba(143,90,243,0.06), rgba(107,47,179,0.02));
+  padding: 28px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+.hero-title{
+  margin:0 0 8px 0;
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  color: var(--purple-900);
+}
+.hero-sub{
+  margin:0;
+  color: var(--muted);
+  font-size:1rem;
+}
+
+.profile-card{
+  background: var(--card);
+  border-radius: 12px;
+  padding:18px;
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(43,11,74,0.04);
+}
+.byline{
+  font-weight:600;
+  color: var(--purple-800);
+  margin:0 0 8px;
+}
+.small{ color: var(--muted); font-size:0.95rem; margin:0; }
+
+.feed{ margin-top: 12px; display:block; }
+
+.card{
+  background: var(--card);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  border: 1px solid rgba(43,11,74,0.03);
+}
+.card.featured{
+  display:flex;
+  padding: 22px;
+  margin-bottom: 20px;
+}
+.card.featured .card-body{ flex:1; }
+.card-title{
+  margin:0 0 8px 0;
+  font-size:1.25rem;
+  line-height:1.15;
+}
+.card-title a{
+  color: var(--purple-900);
+  text-decoration: none;
+}
+.card-meta{
+  margin:6px 0 12px 0;
+  color: var(--muted);
+  font-size:0.9rem;
+}
+.card-excerpt{
+  margin:0;
+  color: #222;
+  font-size:1rem;
+}
+
+.card-grid{
+  display:grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap:18px;
+}
+.card .card-body{ padding:18px; }
+
+.site-footer{
+  padding: 28px 0;
+  background: linear-gradient(90deg, #faf7ff, #fbf9ff);
+  border-top: 1px solid rgba(43,11,74,0.03);
+}
+.footer-inner{
+  max-width: var(--max-width);
+  margin:0 auto;
+  padding: 0 20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+  color: var(--muted);
+  font-size:0.95rem;
+}
+.footer-nav a{ color: var(--muted); margin-left:12px; text-decoration:none; }
+
+@media (max-width: 900px){
+  .hero{ grid-template-columns: 1fr; }
+  .card-grid{ grid-template-columns: 1fr; }
+  .header-inner{ padding: 0 12px; }
+  .hero-aside{ order: 2; }
+}
+
+.article{
+  max-width: var(--measure);
+  margin: 0 auto;
+  padding: 28px;
+  background: var(--card);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+}
+.article h1, .article h2{ font-size: clamp(1.25rem, 3.4vw, 2rem); color: var(--purple-900); margin-bottom: 8px; }
+.article p{ margin: 0 0 1em 0; color:#222; font-size:1.05rem; line-height:1.7; }
+
+a{ color: inherit; }
+a:hover{ text-decoration: underline; }
